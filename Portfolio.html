@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manjinder Singh - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            width: 100%;
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .main-content {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 15%;
+            background: #f4f4f4;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+        .content {
+            width: 85%;
+            padding: 20px;
+        }
+        .project-container {
+            margin-bottom: 40px;
+
+            
+        }
+        
+
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 100px; /* Adds space after each list */
+        }
+        .skills ul li {
+            background: #ddd;
+            margin: 3px 0;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        .footer {
+            width: 100%;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        .project-images {
+            display: flex;
+            gap: 10px;
+            overflow-x: scroll;
+            max-width: 100%;
+        }
+
+        .project-images img {
+            width: auto; /* Set a fixed width for consistency */
+            height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            object-fit: cover; /* Crop images that don't fit */
+        }
+
+        .project-description {
+            margin-top: 10px;
+        }
+
+        .project-images::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .project-images::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 4px;
+        }
+
+        .project-images::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+            position: relative;
+            top: 10%; /* Moves the image slightly downward */
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .zoom-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .zoom-button {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .zoom-button:hover {
+            background-color: #ddd;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+        }
+
+        /* Reduce width of main content */
+        .content {
+            width: 75%;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            width: 20%;
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 3px solid #333;
+            overflow-y: auto;
+            max-height: 100vh; /* Allow full vertical usage */
+        }
+
+        /* Timeline Item Formatting */
+        .timeline-item {
+            margin-bottom: 22px; /* Increase spacing for better readability */
+            padding-left: 10px;
+            border-left: 3px solid #333;
+            position: relative;
+        }
+
+        /* Bold years to stand out */
+        .timeline-item h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        /* Description Formatting */
+        .timeline-item p {
+            margin: 3px 0;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.4; /* Better spacing for readability */
+        }
+
+    
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Manjinder Singh</h1>
+        <h2>M.Sc. Space Engineering | B.Sc. Mechanical Engineering</h2>
+        <h3>Automation, Full-Stack Development, Programming, FEA Simulation, Design, Topology Optimization</h3>
+    </div>
+    <div class="main-content">
+        <div class="timeline">
+            <h3>Timeline</h3>
+            <div class="timeline-item">
+                <h4>2025🎓</h4>
+                <p>Master Degree ended</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2024🏭</h4>
+                <p>AIRBUS</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2023🏭</h4>
+                <p>Rocket Factory Augsburg</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2022🏭</h4>
+                <p>CREST Belgium</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2021🎓</h4>
+                <p>Started M.Sc. in Space Engineering (University of Bremen)</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2020🎓</h4>
+                <p>German Language B2 - Goethe Certification</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2019🎓</h4>
+                <p>German Language B1 - Goethe Certification</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2019🏭</h4>
+                <p>Production Manager</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2017🏭</h4>
+                <p>Engineer Trainee at Preet Tractors Pvt. Ltd.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2014🎓</h4>
+                <p>B.Tech in Mechanical Engineering</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2012🎓</h4>
+                <p>Diploma in Mechanical Engineering (Welding Technology)</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2011🏭</h4>
+                <p>Industrial Training at Preet Tractors Pvt. Ltd.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2010🏭</h4>
+                <p>Certification in Mechanical Engineering (Welding Technology)</p>
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <div class="skills">
+                <h3>Skills</h3>
+                <h4>Master Thesis</h4>
+                <ul>
+                    <li>Hyperworks|Optistruct|Rhino 3D & Grasshopper Automation</li>
+                    <li>Fronted and Backend Development .NET Application</li>
+                    <li>Composite FEA Simulation</li>
+                    <li>AFP Manufacturing</li>
+                    <li>Python, C#, Tcl ,.NET</li>
+
+                </ul>
+                <h4>Siemens NX Integrated Windows Forms UI and Weld Analysis Tool</h4>
+                <ul>
+                    <li>VB|Python|.NET Development</li>
+                    <li>NX Open API</li>
+                    <li>ANSYS Automation</li>
+                    <li>UML</li>
+                </ul>
+                <h4>Bracket Topology Optimization</h4>
+                <ul>
+                    <li>FEA</li>
+                    <li>Topology Optimization</li>
+                    <li>CAD Design</li>
+                    <li>ANSYS Automation</li>
+                </ul>
+                <h4>FEA Analysis of Knuckle Joint</h4>
+                <ul>
+                    <li>FEA</li>
+                    <li>Contact Analysis</li>
+                    <li>Siemens NX</li>
+                </ul>
+                <h4>Sheet Metal Design</h4>
+                <ul>
+                    <li>Sheet Metal Design</li>
+                    <li>Siemens NX</li>
+                    <li>CAD Modeling</li>
+                </ul>
+                <h4>German Language Proficiency</h4>
+                <ul>
+                    <li>B1</li>
+                    <li>B2</li>
+                </ul>
+                <h4>Online Courses</h4>
+                <ul>
+                    <li>C#</li>
+                    <li>OOP</li>
+                    <li>NX Open Programming</li>
+                    <li>3D Printing</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <section id="portfolio">
+                <div class="project-container">
+                    <div class="project">
+                        <h3>Development and Validation of Simulation Method for Variable Stiffness Layer Incorporating the Defects (Gaps)</h3>
+                        <div class="project-images">
+                            <img src="Berechnungs_und_Automatisierungsingenieur/GUI.png" alt="Tailored GUI and result dashboard" onclick="openModal(this)">
+                            <img src="Berechnungs_und_Automatisierungsingenieur/Dashboard.png" alt="Result dashboard" onclick="openModal(this)">
+                            <img src="Berechnungs_und_Automatisierungsingenieur/System_Design_Diagram_WhiteBG.png" alt="System Design Diagram" onclick="openModal(this)">
+                            <img src="Berechnungs_und_Automatisierungsingenieur/Process_Flowchart_Automation_WhiteBG.png" alt="Process_flowchart_automation" onclick="openModal(this)">
+                            <img src="Berechnungs_und_Automatisierungsingenieur/Full_laminate.png" alt="Full laminate with incorporated Gaps" onclick="openModal(this)">
+                            <img src="Berechnungs_und_Automatisierungsingenieur/Max_contour_with_gaps.png" alt="Simulations Results of Gap ply" onclick="openModal(this)">
+                            <img src="Berechnungs_und_Automatisierungsingenieur/Grasshopper.png" alt="Grasshopper" onclick="openModal(this)">
+                            <img src="Berechnungs_und_Automatisierungsingenieur/AFP_at_Berechnungs_und_Automatisierungsingenieur.jpg" alt="AFP Manufacturing at CTC Berechnungs_und_Automatisierungsingenieur" onclick="openModal(this)">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="project-container">
+                    <div class="project">
+                        <h3>.NET & Siemens NX CAD Design and Production Automation and Weld Analysis and Optimization Tool -ANSYS</h3>
+                        <div class="project-images">
+                            <img src="Siemens_NXOpen_WinForms_Automation\Progress_Pic_1.jpg" alt="Windows Forms UI Mockup" onclick="openModal(this)">
+                            <img src="Siemens_NXOpen_WinForms_Automation\Progress_pic_2.PNG" alt="Windows Forms Application - Final UI" onclick="openModal(this)">
+                            <img src="Siemens_NXOpen_WinForms_Automation/Weld_analysis_tool_FLowchart.drawio.png" alt="Weld Analysis Tool - Flow Chart" onclick="openModal(this)">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="project-container">
+                    <div class="project">
+                        <h3>Bracket Topology Optimization Using - ANSYS</h3>
+                        <div class="project-images">
+                            <img src="Bracket_Topology_optimization/progress_pic_1.png" alt="Initial bracket design" onclick="openModal(this)">
+                            <img src="Bracket_Topology_optimization/progress_pic_2.png" alt="Second design stage" onclick="openModal(this)">
+                            <img src="Bracket_Topology_optimization/progress_pic_3.png" alt="Third design stage" onclick="openModal(this)">
+                            <img src="Bracket_Topology_optimization/progress_pic_4.png" alt="Fourth design stage" onclick="openModal(this)">
+                            <img src="Bracket_Topology_optimization/progress_pic_5.png" alt="Fifth design stage" onclick="openModal(this)">
+                            <img src="Bracket_Topology_optimization/progress_pic_6.png" alt="Sixth design stage" onclick="openModal(this)">
+                            <img src="Bracket_Topology_optimization/progress_pic_7.png" alt="Final optimized bracket" onclick="openModal(this)">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="project-container">
+                    <div class="project">
+                        <h3>FEA Analysis of Knuckle Joint, Contact Analysis</h3>
+                        <div class="project-images">
+                            <img src="Simulation/Model.png" alt="Windows Forms UI Mockup" onclick="openModal(this)">
+                            <img src="Simulation/Results.png" alt="Windows Forms Application - Final UI" onclick="openModal(this)">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="project-container">
+                    <div class="project">
+                        <h3>Sheet Metal Design Using Siemens NX - Rib Design</h3>
+                        <div class="project-images">
+                            <img src="Rib_design_and_pictures/Progress_pic_1.png" alt="Initial design progress" onclick="openModal(this)">
+                            <img src="Rib_design_and_pictures/Progress_pic_2.png" alt="Second design stage" onclick="openModal(this)">
+                            <img src="Rib_design_and_pictures/Progress_pic_3.png" alt="Third design stage" onclick="openModal(this)">
+                            <img src="Rib_design_and_pictures/Rib_design.webp" alt="Final rib design" onclick="openModal(this)">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="project-container">
+                    <div class="project">
+                        <h3>German Language Proficiency</h3>
+                        <div class="project-images">
+                            <img src="German_Language_Proficiency/B1.jpg" alt="Initial design progress" onclick="openModal(this)">
+                            <img src="German_Language_Proficiency/B2.jpg" alt="Second design stage" onclick="openModal(this)">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="project-container">
+                    <div class="project">
+                        <h3>Online Cerifications</h3>
+                        <div class="project-images">
+                            <img src="Certifications/CertificateOfCompletion_Composite_Design_and_Manufacturing_01_Process_and_Materials_page_1.png" alt="Initial bracket design" onclick="openModal(this)">
+                            <img src="Certifications/CertificateOfCompletion_Learning_C_page_1.png" alt="Second design stage" onclick="openModal(this)">
+                            <img src="Certifications/CertificateOfCompletion_Programming_Foundations_ObjectOriented_Design_page_1.png" alt="Third design stage" onclick="openModal(this)">
+                            <img src="Certifications/CertificateOfCompletion_Rhino_7_Essential_Training_page_1.png" alt="Fourth design stage" onclick="openModal(this)">
+                            <img src="Certifications/Coursera_FUSION360_Certificate_page_1.png" alt="Fifth design stage" onclick="openModal(this)">
+                            <img src="Certifications/NXopen_programming_page-0001.jpg" alt="Sixth design stage" onclick="openModal(this)">
+                            <img src="Certifications/udemy_Fusion_360_certificate_page-0001.jpg" alt="Final optimized bracket" onclick="openModal(this)">
+                            <img src="Certifications/Udemy_python_certification_page-0001.jpg" alt="Python certification" onclick="openModal(this)">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    </section>
+
+    <footer>
+        <p>GitHub Account: 
+            <a href="https://github.com/manjindersiingh" target="_blank" style="color: white; text-decoration: none;">
+                https://github.com/manjindersiingh
+            </a></p>
+        <p>&copy; 2024 Manjinder Singh. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="zoom-controls">
+            <button class="zoom-button" onclick="zoomIn()">Zoom In</button>
+            <button class="zoom-button" onclick="zoomOut()">Zoom Out</button>
+        </div>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+        let currentImageIndex = 0;
+        let images = [];
+
+        function openModal(img) {
+            images = Array.from(document.querySelectorAll(".project-images img"));
+            currentImageIndex = images.indexOf(img);
+
+            const modal = document.getElementById("imageModal");
+            const modalImage = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImage.src = img.src;
+            currentZoom = 1;
+            modalImage.style.transform = `scale(${currentZoom})`;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        function zoomIn() {
+            const modalImage = document.getElementById("modalImage");
+            currentZoom += 0.2;
+            modalImage.style.transform = `scale(${currentZoom})`;
+        }
+
+        function zoomOut() {
+            const modalImage = document.getElementById("modalImage");
+            if (currentZoom > 0.4) {
+                currentZoom -= 0.2;
+                modalImage.style.transform = `scale(${currentZoom})`;
+            }
+        }
+
+        function navigateImage(direction) {
+            if (images.length === 0) return;
+
+            currentImageIndex += direction;
+
+            // Loop around if reaching the first or last image
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+
+            const modalImage = document.getElementById("modalImage");
+            modalImage.src = images[currentImageIndex].src;
+        }
+
+        // Keyboard Controls
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                closeModal(); // Close modal with "Esc"
+            } else if (event.key === "ArrowRight") {
+                navigateImage(1); // Next image with "Right Arrow"
+            } else if (event.key === "ArrowLeft") {
+                navigateImage(-1); // Previous image with "Left Arrow"
+            }
+        });
+    </script>
+
+</body>
+</html>
